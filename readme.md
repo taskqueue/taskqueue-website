@@ -5,8 +5,8 @@ contained within this repo.
 
 ## Getting Started
 
-The website is built on [flipside](https://github.com/reuben-interactive/flipside)
-- a Node CLI for static web development, to install run the following command:
+The website is built on [flipside](https://github.com/reuben-interactive/flipside),
+a Node CLI for static web development, to install run the following command:
 
 ```bash
 $ npm install -g flipside

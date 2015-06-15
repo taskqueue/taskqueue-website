@@ -20,9 +20,7 @@ Authorization: Token {API_TOKEN}
 X-TQ-Timeout: 30
 X-TQ-Endpoint: http://target-this.io/new-order
 
-{
-  {JSON_PAYLOAD}
-}
+{{JSON_PAYLOAD}}
 ```
 
 ##### Response
@@ -72,11 +70,11 @@ Below is an example hook definition:
 
 ```json
 {
-"id": "2299180b-6d0c-4aab-afbd-b4f98f8eeb9d",
-"endpoint": "http://target-this.io/new-order",
-"filters": [
-  "type": "new-order"
-]
+  "id": "2299180b-6d0c-4aab-afbd-b4f98f8eeb9d",
+  "endpoint": "http://target-this.io/new-order",
+  "filters": [
+    { "type": "new-order" }
+  ]
 }
 ```
 
@@ -87,8 +85,8 @@ The unique ID of the hook.
 An absolute `HTTP` / `HTTPS` URI that accepts requests conforming with the following contract:
 
 ```http
-POST {ENDPOINT_ABSOLUTE_PATH}
-Host: {ENDPOINT_HOST_AND_PORT}
+POST ENDPOINT_ABSOLUTE_PATH
+Host: ENDPOINT_HOST_AND_PORT
 Content-Type: application/json
 ```
 
@@ -130,7 +128,7 @@ Authorization: Token {API_TOKEN}
       "id": "83aa54e4-e92b-41a1-9ee3-fe43c01977f1",
       "endpoints": "http://target-this.io/new-customer",
       "filters": [
-        "type": "new-customer"
+        { "type": "new-customer" }
       ]
     },
     {
@@ -161,7 +159,7 @@ Authorization: Token {API_TOKEN}
   "id": "2299180b-6d0c-4aab-afbd-b4f98f8eeb9d",
   "target": "http://target-this.io/new-order",
   "filters": [
-    "type": "new-order"
+    { "type": "new-order" }
   ]
 }
 ```
@@ -180,7 +178,7 @@ Authorization: Token {API_TOKEN}
 {
   "target": "http://target-this.io/new-order",
   "filters": [
-    "type": "new-order"
+    { "type": "new-order" }
   ]
 }
 ```
@@ -193,7 +191,7 @@ Authorization: Token {API_TOKEN}
   "id": "2299180b-6d0c-4aab-afbd-b4f98f8eeb9d",
   "target": "http://target-this.io/new-order",
   "filters": [
-    "type": "new-order"
+    { "type": "new-order" }
   ]
 }
 ```
