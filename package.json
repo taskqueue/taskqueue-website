@@ -1,0 +1,15 @@
+{
+  "name": "taskqueue-website",
+  "version": "1.0.0",
+  "description": "The taskqueue website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Reuben Interactive",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "flagged-respawn": "^0.3.1",
+    "v8flags": "^2.0.5"
+  }
+}
