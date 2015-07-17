@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# script/bootstrap - compiles the application.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# run build
+echo "Running build ..."
+date "+%H:%M:%S"
+
+gulp build --env production 

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/setup - run the first time you setup the project.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# Bootstrap
+sh script/bootstrap

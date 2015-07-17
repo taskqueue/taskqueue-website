@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# script/bootstrap - make sure all required dependencies are installed.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+
+# NPM globals
+echo "Check global dependencies ..."
+date "+%H:%M:%S"
+
+npm install -g gulpjs/gulp.git#4.0
+npm install -g bower
+
+
+# NPM
+echo "Updating npm packages ..."
+date "+%H:%M:%S"
+
+npm install
+npm prune
+
+
+# Bower
+echo "Updating bower packages ..."
+date "+%H:%M:%S"
+
+bower install
+bower prune

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# script/server - starts the application.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# run tests
+echo "Starting server ..."
+date "+%H:%M:%S"
+
+gulp server

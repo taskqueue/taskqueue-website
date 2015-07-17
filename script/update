@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/update - updates to the latest version, usually done after a pull.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# Bootstrap
+sh script/bootstrap

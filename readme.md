@@ -5,19 +5,23 @@ contained within this repo.
 
 ## Getting Started
 
-The website is built on [flipside](https://github.com/reuben-interactive/flipside),
-a Node CLI for static web development, to install run the following command:
+Coming soon...
 
-```bash
-$ npm install -g flipside
+### Gulp
+
+We are using a pre-release version of gulp 4.0, so follow the steps below to setup your
+local machine:
+
+#### 1. Install gulp globally:
+
+```sh
+$ npm install --global gulpjs/gulp.git#4.0
 ```
 
-Next, open a terminal up in the root of the cloned repository, then run the `server`
-server command for flipside in order to view the site and live reload as you edit
-content.
+#### 2. Install gulp in your project devDependencies:
 
-```bash
-$ flip server
+```sh
+$ npm install --save-dev gulpjs/gulp.git#4.0
 ```
 
 

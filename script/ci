@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# script/ci - executes the CI build process.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "Running CI ..."
+date "+%H:%M:%S"
+
+# run build
+sh script/build
+
+# run tests
+sh script/test

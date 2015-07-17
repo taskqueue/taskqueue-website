@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# script/test - executes the tests.
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# run tests
+echo "Running tests ..."
+date "+%H:%M:%S"
+
+npm test
