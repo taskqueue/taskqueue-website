@@ -1,87 +1,54 @@
 
 
 .main-header {
-	height: 100vh;
-	width: 100vw;
-	color: #fff;
-	text-align: center;
-	background-color: #F86829;
+  height: 100vh;
+  width: 100vw;
+  color: @light-grey;
+  text-align: center;
+  background-color: @dark-blue;
 }
 
 .main-header-logo{
-	font-family: "Adelle Sans", sans-serif;
-	font-weight: 900;
-	font-style: italic;
-	font-size: 4em;
+  background-image: url(/images/logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 200px;
+  margin: 0 auto;
 }
 
 .main-header-content {
-	position: absolute;
-	transform-style: preserve-3d;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  width: 90%;
+  transform-style: preserve-3d;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .main-header-text {
-	width: 90vw;
-	animation: fadein 2s;
-	margin-bottom: 60px;
-	font-size: 2.8em;
-	font-weight: 300;
-	line-height: 60px;
+  font-size: 3em;
+  font-weight: 200;
+  margin: 0.6em auto 20vh auto;
 }
 
 .main-header-btn {
-	transition: all 0.4s;
-	color: inherit;
-	padding: 15px 20px 16px;
-	vertical-align: top;
-	cursor: pointer;
-	border: 1px solid #fff;
-	border-radius: 3px;
-	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
-	animation: fadein 2s;
-	text-shadow: none;
-	color: #333;
-	background-color: #fff;
-	font-size: 22px;
-	user-select: none;
+  padding: 12px 128px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  color: @dark-blue;
+  background-color: @orange;
+  font-size: 1.2em;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
 }
 
-.main-header-btn:hover {
-	box-shadow: 0 0 50px rgba(255,255,255,0.3);
-}
-
-
-// ===========================
-
-
-.navbar {
-  padding-top: 30px;
-  width: 100%;
-}
-
-.navbar a {
-	color: #fff;
-	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
-	font-size: 16px;
-	font-weight: 300;
-	line-height: 1;
-}
-
-.navbar .navbar-links {
-}
-
-.navbar .navbar-links .navbar-link {
-	padding: 0 15px;
-	border-right: 1px solid rgba(255,255,255,0.3);
-}
-
-.navbar .navbar-links .navbar-link:last-child {
-	border-right: none;
+.main-header-btn:hover{
+  color: @white;
 }
 
 
@@ -89,9 +56,8 @@
 
 
 .benefits{
-	background-color: #222;
-	color: #fff;
-	clear: both;
+  background-color: @light-blue;
+  clear: both;
 }
 
 .benefits:after {
@@ -101,26 +67,197 @@
 }
 
 .benefits .benefit{
-	float: left;
-	width: 50%;
-	padding: 10px 20px;
+  float: left;
+  width: 50%;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.benefits .benefit .benefit-icon {
+  color: @orange;
+  background: @white;
+  border-radius: 500px;
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  line-height: 5em;
+  text-align: center;
+}
+
+.benefits .benefit .benefit-icon i {
+  font-size: 3em;
+  line-height: 1.7em;
 }
 
 .benefits .benefit .benefit-title {
-	margin-bottom: 14px;
-	font-size: 22px;
-	font-weight: 500;
+  margin: 0.4em 0;
+  font-size: 32px;
+  font-weight: 500;
+  color: @dark-blue;
 }
 
 .benefits .benefit .benefit-text {
-	color: #7f8c8d;
-	font-size: 16px;
-	line-height: 26px;
+  font-size: 18px;
 }
 
-@media screen and (max-width: 700px) {
 
-	.benefits .benefit{
-		width: 100%;
-	}
+// ===========================
+
+
+.contact {
+  background-color: @dark-blue;
+  color: @light-grey;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.contact .section-header,
+.contact .section-subheader {
+  color: @light-grey;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contact .social {
+  border-top: 1px solid #374451;
+  border-bottom: 1px solid #374451;
+  margin: 20px auto;
+  width: 50%;
+}
+
+.contact .social .social-list {
+  list-style: none;
+  margin: 80px auto;
+  padding: 0;
+}
+
+.contact .social .social-list li {
+  list-style: none;
+  text-transform: uppercase;
+  display: inline-block;
+  border-right: 1px solid @light-grey;
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.contact .social .social-list li:last-child{
+  border: 0;
+}
+
+.contact .social .social-list a {
+  text-decoration: none;
+  color: @light-grey;
+}
+
+.contact .social .social-list a:hover {
+    color: @white;
+}
+
+.contact .contact-form{
+  margin-top: 48px;
+}
+
+.contact .contact-input {
+  display: inline-block;
+  border: 0;
+  border-radius: 3px;
+  color: @dark-grey;
+  background-color: @light-blue;
+  font-size: 1.2em;
+  padding: 8px 12px;
+  margin: 0 4px;
+}
+
+.contact .contact-btn {
+  display: block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  color: @dark-blue;
+  background-color: @orange;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 12px 72px;
+  margin: 32px auto 64px auto;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+.contact .contact-btn:hover{
+  color: @white;
+}
+
+.contact .emailUs a {
+  color: @light-grey;
+  text-decoration: none;
+}
+
+
+// ===========================
+
+
+@media (max-width: 480px) {
+  .main-header-btn {
+    display: block;
+    padding: 12px 0;
+    width: 100%;
+  }
+  .main-header-logo{
+    min-height: 130px;
+  }
+  .main-header-text{
+    font-size: 2em;
+  }
+  .contact .social {
+    width: 90%;
+  }
+  .contact .social .social-list li{
+    display: block;
+    border: 0;
+    margin-bottom: 16px;
+  }
+  .contact .contact-input,
+  .contact .contact-btn {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits .benefit{
+    width: 100%;
+  }
+  .contact .contact-input {
+    display: block;
+    margin: 16px auto;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-header-logo{
+    min-height: 160px;
+  }
+  .main-header-text{
+    font-size: 2.4em;
+  }
+  .contact .social {
+    width: 70%;
+  }
+  .contact .contact-input,
+  .contact .contact-btn {
+    width: 45%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-header-logo{
+    min-height: 180px;
+  }
 }

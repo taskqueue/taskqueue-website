@@ -3,6 +3,7 @@
 var fs      = require('fs'),
     path    = require('path'),
     gulp    = require('gulp'),
+    sync    = require('browser-sync').create(),
     $       = require('gulp-load-plugins')({ lazy: true }),
     config  = require('./gulpfile.config.js'),
     pkg     = require('./package.json');
@@ -24,6 +25,7 @@ gulp.task('misc',           misc);
 gulp.task('watch',          watch);
 gulp.task('rev',            rev);
 gulp.task('size',           size);
+gulp.task('serve',          serve);
 
 gulp.task('render', gulp.parallel('markdown', 'handlebars'));
 
@@ -31,21 +33,23 @@ gulp.task('compile', gulp.parallel('js', 'jsVendor', 'css', 'cssVendor', 'images
 
 gulp.task('build', gulp.series('clean', 'compile', 'rev', 'size'));
 
-gulp.task('default', gulp.series('build'));
+gulp.task('server', gulp.series('build', gulp.parallel('serve', 'watch')));
+
+gulp.task('default', gulp.series('server'));
 
 // ---------------------------------------------------------------------
 // | Definitions
 // ---------------------------------------------------------------------
 
-function isProduction(){
+function isProduction() {
   return config.options.env === 'production';
 }
 
-function clean(done){
+function clean(done) {
   require('del')(config.output(''), done);
 }
 
-function js(filename, files){
+function js(filename, files) {
   return gulp.src(files)
     .pipe($.sourcemaps.init({loadMaps: true}))
     .pipe($.concat(filename))
@@ -54,31 +58,32 @@ function js(filename, files){
     .pipe(gulp.dest(config.output('/js')));
 }
 
-function jsApp(){
+function jsApp() {
   return js('app.js', config.files.js);
 }
 
-function jsVendor(){
+function jsVendor() {
   return js('vendor.js', config.files.jsVendor);
 }
 
-function css(filename, files){
+function css(filename, files) {
   return gulp.src(files)
     .pipe($.less({ paths: [ path.join(__dirname, 'less') ]  }))
+    .pipe($.concat(filename))
     .pipe($.autoprefixer({ browsers: ['last 2 versions', '> 5%'] }))
     .pipe($.if(isProduction(), $.csso()))
     .pipe(gulp.dest(config.output('/css')));
 }
 
-function cssApp(){
+function cssApp() {
   return css('app.css', config.files.css);
 }
 
-function cssVendor(){
+function cssVendor() {
   return css('vendor.css', config.files.cssVendor);
 }
 
-function watch(){
+function watch() {
   gulp.watch(config.files.js,                 gulp.series('js'));
   gulp.watch(config.files.jsVendor,           gulp.series('jsVendor'));
   gulp.watch(config.files.cssWatch,           gulp.series('css'));
@@ -89,9 +94,10 @@ function watch(){
   gulp.watch(config.files.handlebars,         gulp.series('handlebars'));
   gulp.watch(config.files.templates.layouts,  gulp.series('render'));
   gulp.watch(config.files.templates.partials, gulp.series('render'));
+  gulp.watch(config.files.self,               gulp.series('compile'));
 }
 
-function images(){
+function images() {
   return gulp.src(config.files.images)
     .pipe($.cached())
     .pipe($.imagemin({
@@ -101,27 +107,27 @@ function images(){
     .pipe(gulp.dest(config.output('/images')));
 }
 
-function misc(){
+function misc() {
   return gulp.src(config.files.misc, { base: 'src/site' })
     .pipe(gulp.dest(config.output('')));
 }
 
-function markdown(done){
+function markdown(done) {
   done();
 }
 
 var es = require('event-stream');
 var async = require('async');
 
-function handlebars(done){
+function handlebars(done) {
 
   var layouts = {},
       partials = {},
       data = {};
-  
+
   es.concat(
     gulp.src('src/templates/layouts/**/*.hbs')
-      .pipe($.extract(layouts)),    
+      .pipe($.extract(layouts)),
     gulp.src('src/templates/partials/**/*.hbs')
       .pipe($.extract(partials))
   )
@@ -135,7 +141,7 @@ function handlebars(done){
   });
 }
 
-function rev(){
+function rev() {
   var assets = $.useref.assets({ searchPath: config.output('/**/*') });
   return gulp.src(config.output('/**/*.html'))
     .pipe(assets)
@@ -145,7 +151,16 @@ function rev(){
     .pipe(gulp.dest(config.output('')));
 }
 
-function size(){
+function size() {
   return gulp.src(config.output('/**/*'))
     .pipe($.size({title: 'build', gzip: true}));
+}
+
+function serve() {
+    sync.init({
+        port: config.port,
+        server: {
+            baseDir: "./app"
+        }
+    });
 }

@@ -1,22 +1,21 @@
 
 html,
 body {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	font-size: 14px;
-	color: #333;
-	background-color: #fff;
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-	font-feature-settings: 'liga', 'kern';
-	overflow: hidden;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: @dark-grey;
+  background-color: @white;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga', 'kern';
 }
 
 
@@ -24,25 +23,28 @@ body {
 
 
 .section{
-	padding: 40px 0;
+  padding: 60px 0;
 }
 
 .section-container{
-	width: auto;
-	max-width: 1024px;
-	display: block;
-	margin: 0 auto;
+  width: auto;
+  max-width: 1024px;
+  display: block;
+  margin: 0 auto;
 }
 
 .section-header{
-	text-align: center;
-	font-size: 32px;
-	font-weight: 600;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: @dark-blue;
+  margin-top: 0;
 }
 
 .section-subheader{
-	text-align: center;
-	font-size: 18px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: -10px;
 }
 
 
@@ -50,16 +52,16 @@ body {
 
 
 .container{
-	max-width: 1024px;
-	margin: 0 auto;
-	padding: 0 20px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 
 // ===========================
 
 .fixed-layout{
-	margin-top: 80px;
+  margin-top: 80px;
 }
 
 .fixed-header{
@@ -74,16 +76,16 @@ body {
 }
 
 .fixed-header-logo{
-	font-family: "Adelle Sans", sans-serif;
-	font-weight: 900;
-	font-style: italic;
-	font-size: 2em;
-	margin: 0;
+  font-family: "Adelle Sans", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 2em;
+  margin: 0;
 }
 
 .fixed-header-logo a {
-	text-decoration: none;
-	color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 
@@ -91,12 +93,12 @@ body {
 
 
 @keyframes fadein {
-	from {
-		opacity: 0;
-		filter: alpha(opacity=0);
-	}
-	to {
-		opacity: 1;
-		filter: none;
-	}
+  from {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
 }
