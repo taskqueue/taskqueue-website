@@ -35,6 +35,7 @@
     "gulp-useref": "^1.2.0",
     "gulp-util": "^3.0.6",
     "minimist": "^1.1.1",
+    "mocha": "^2.2.5",
     "through2": "^2.0.0"
   }
 }
